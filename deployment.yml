@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydoordiepod
+  labels:
+    app: doordie
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: doordie
+  template:
+    metadata:
+      labels:
+        app: doordie
+    spec:
+      containers:
+      - name: doordie
+        image: asha0190/sampleapp:buildversion
+        ports:
+        - containerPort: 8083
