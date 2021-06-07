@@ -22,7 +22,7 @@ pipeline{
               stage('Publish image to DockerHub') {
               steps {
               withDockerRegistry(credentialsId: '9041890f-2abd-4c91-9537-ab206b5d2df7', url: '') {
-              sh  """docker push asha0190/k8deployment:v${env.BUILD_NUMBER}"""
+              sh  """docker push k8deployment:v${env.BUILD_NUMBER}"""
               }
              }
             }      
