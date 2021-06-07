@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: doordie
-        image: asha0190/sampleapp:buildversion
+        image: asha0190/k8deployment:buildversion
         ports:
         - containerPort: 8083
