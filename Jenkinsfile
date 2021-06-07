@@ -8,21 +8,21 @@ pipeline{
             //Checkout of sample application war file and other dependent files
               stage('Checkout') {
                   steps { 
-                  checkout([$class: 'GitSCM', branches: [[name: '**']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/ashajain0190/aYOAssignment.git']]])
+                  checkout([$class: 'GitSCM', branches: [[name: '**']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/ashajain0190/Deployment-to-K8.git']]])
                   }
               }
               //Creating Docker image and tagging it
               stage('Docker Build and Taging') {
               steps {
-                   sh """docker build -t sampleapp:v${env.BUILD_NUMBER} ."""
-                   sh """docker tag sampleapp asha0190/sampleapp:v${env.BUILD_NUMBER}"""
+                   sh """docker build -t k8deployment:v${env.BUILD_NUMBER} ."""
+                   //sh """docker tag sampleapp asha0190/sampleapp:v${env.BUILD_NUMBER}"""
                   }
              }
              //Publish Docker image
               stage('Publish image to DockerHub') {
               steps {
               withDockerRegistry(credentialsId: '9041890f-2abd-4c91-9537-ab206b5d2df7', url: '') {
-              sh  """docker push asha0190/sampleapp:v${env.BUILD_NUMBER}"""
+              sh  """docker push asha0190/k8deployment:v${env.BUILD_NUMBER}"""
               }
              }
             }      
