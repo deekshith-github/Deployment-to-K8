@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mydoordieservice
+  name: mysampleappservice
   namespace: default
 spec:
   ports:
     - name: http
-      port: 8083
+      port: 8082
   type: NodePort    
   selector:
-    apps: doordie
+    apps: mysampletomcatapp
