@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mydoordiepod
+  name: mysampleappdeployment
   labels:
-    app: doordie
+    app: mysampletomcatapp
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: doordie
+      app: mysampletomcatapp
   template:
     metadata:
       labels:
-        app: doordie
+        app: mysampletomcatapp
     spec:
       containers:
-      - name: doordie
+      - name: mysampletomcatapp
         image: asha0190/k8deployment:buildversion
         ports:
-        - containerPort: 8083
+        - containerPort: 8082
