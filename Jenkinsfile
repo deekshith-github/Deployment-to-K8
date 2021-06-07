@@ -15,7 +15,6 @@ pipeline{
               stage('Docker Build and Taging') {
               steps {
                    sh """docker build -t asha0190/k8deployment:v${env.BUILD_NUMBER} ."""
-                   //sh """docker tag k8deployment asha0190/k8deployment:v${env.BUILD_NUMBER}"""
                   }
              }
              //Publish Docker image
@@ -27,7 +26,7 @@ pipeline{
              }
             }      
             // Deploy to K8 Minikube Cluster
-              stage('Deploy to K8 Cluster') {
+               stage('Deploy to K8 Cluster') {
                steps {
                sh """chmod +x ./changeversion.sh"""
                sh """./changeversion.sh v${env.BUILD_NUMBER}"""
