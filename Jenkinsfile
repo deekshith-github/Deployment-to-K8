@@ -15,7 +15,7 @@ pipeline{
               stage('Docker Build and Taging') {
               steps {
                    sh """docker build -t k8deployment:v${env.BUILD_NUMBER} ."""
-                   sh """docker tag k8deployment asha0190/k8deployment:v${env.BUILD_NUMBER}"""
+                   //sh """docker tag k8deployment asha0190/k8deployment:v${env.BUILD_NUMBER}"""
                   }
              }
              //Publish Docker image
