@@ -31,8 +31,7 @@ pipeline{
                sh """chmod +x ./changeversion.sh"""
                sh """./changeversion.sh v${env.BUILD_NUMBER}"""
                sh """rm ./deployment.yml"""
-               kubernetesDeploy configs: '*.yml', kubeConfig: [path: '.kube/config'], kubeconfigId: 'KubeConfig', secretName: '', ssh: [sshCredentialsId: 'e77c6f04-7221-4d18-b1e0-6b1f6aea0833', sshServer: 'https://192.168.99.100'], textCredentials: [certificateAuthorityData: '/home/ashajain0190/.minikube/ca.crt', clientCertificateData: '/home/ashajain0190/.minikube/profiles/minikube/client.crt', clientKeyData: '/home/ashajain0190/.minikube/profiles/minikube/client.key', serverUrl: 'https://192.168.49.2:8443']
-                  }  
+               kubernetesDeploy configs: '*.yml', kubeConfig: [path: '.kube/config'], kubeconfigId: 'KubeConfig', secretName: '', ssh: [sshCredentialsId: 'e77c6f04-7221-4d18-b1e0-6b1f6aea0833', sshServer: '192.168.49.2'], textCredentials: [certificateAuthorityData: '/home/ashajain0190/.minikube/ca.crt', clientCertificateData: '/home/ashajain0190/.minikube/profiles/minikube/client.crt', clientKeyData: '/home/ashajain0190/.minikube/profiles/minikube/client.key', serverUrl: 'https://192.168.49.2:8443'] 
                }
          }
       }
