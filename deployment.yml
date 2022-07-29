@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: mysampletomcatapp
-        image: asha0190/k8deployment:buildversion
+        image: kottedeek/k8deployment:buildversion
         ports:
         - containerPort: 8080
